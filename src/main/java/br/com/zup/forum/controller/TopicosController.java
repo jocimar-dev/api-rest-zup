@@ -1,24 +1,5 @@
 package br.com.zup.forum.controller;
 
-import java.net.URI;
-import java.util.List;
-import java.util.Optional;
-
-import javax.transaction.Transactional;
-import javax.validation.Valid;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriComponentsBuilder;
-
 import br.com.zup.forum.controller.dto.DetalhesDoTopicoDto;
 import br.com.zup.forum.controller.dto.TopicoDto;
 import br.com.zup.forum.controller.form.AtualizacaoTopicoForm;
@@ -26,6 +7,16 @@ import br.com.zup.forum.controller.form.TopicoForm;
 import br.com.zup.forum.modelo.Topico;
 import br.com.zup.forum.repository.CursoRepository;
 import br.com.zup.forum.repository.TopicoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import javax.transaction.Transactional;
+import javax.validation.Valid;
+import java.net.URI;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/topicos")
@@ -59,7 +50,7 @@ public class TopicosController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<DetalhesDoTopicoDto> detalhar(@PathVariable Long id) {
+	public ResponseEntity<DetalhesDoTopicoDto> detalhar(@PathVariable	 Long id) {
 		Optional<Topico> topico = topicoRepository.findById(id);
 		return topico.map(value -> ResponseEntity.ok(
 				new DetalhesDoTopicoDto(value))).orElseGet(() -> ResponseEntity.notFound().build());
