@@ -17,21 +17,5 @@ public class RespostaDto {
 		this.dataCriacao = resposta.getDataCriacao();
 		this.nomeAutor = resposta.getAutor().getNome();
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public String getMensagem() {
-		return mensagem;
-	}
-
-	public LocalDateTime getDataCriacao() {
-		return dataCriacao;
-	}
-
-	public String getNomeAutor() {
-		return nomeAutor;
-	}
 	
 }
