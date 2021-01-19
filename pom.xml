@@ -9,7 +9,7 @@
 		<version>2.3.1.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.alura</groupId>
+	<groupId>br.com.zup</groupId>
 	<artifactId>forum</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>forum</name>
